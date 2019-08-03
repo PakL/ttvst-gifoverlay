@@ -1,0 +1,9 @@
+{
+	"name": "gifoverlay",
+	"description": "Overlay to play GIFs, Videos or Audio",
+	"version": "0.2.0",
+	"dependencies": {
+	},
+	"systems": ["win32"],
+	"toolversion": "1.x.x"
+}
