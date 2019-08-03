@@ -1,7 +1,7 @@
 {
 	"name": "gifoverlay",
 	"description": "Overlay to play GIFs, Videos or Audio",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"dependencies": {
 	},
 	"systems": ["win32"],

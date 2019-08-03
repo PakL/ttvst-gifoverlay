@@ -56,42 +56,36 @@
 				return obj
 			}
 
+			function processMsg(msg) {
+				let args = urlToObject(msg)
+
+				if(typeof(args.volume) === 'undefined') args.volume = 1
+				else args.volume = parseFloat(args.volume)
+
+				if(typeof(args.duration) === 'undefined') args.duration = 3000
+				else args.duration = parseInt(args.duration)
+
+				if(typeof(args.gif) === 'string') {
+					showGif(args.gif, args.duration)
+				} else if(args.video === 'string') {
+					showVideo(args.video, args.volume)
+				}
+				if(typeof(args.audio) === 'string') {
+					playAudio(args.audio, args.volume)
+				}
+			}
+
 			var ws = new WebsocketHelper();
 			var visible = false
 			$(document).ready(function(){
 				ws.on('gif=', function(msg){
-					let args = urlToObject(msg)
-					if(typeof(args.duration) === 'undefined') {
-						args.duration = 3000
-					} else {
-						args.duration = parseInt(args.duration)
-					}
-
-					showGif(args.gif, args.duration)
-					if(typeof(args.audio) !== 'undefined') {
-						ws.emit('audio=', msg)
-					}
+					processMsg(msg)
 				})
 				ws.on('video=', function(msg){
-					let args = urlToObject(msg)
-					if(typeof(args.volume) === 'undefined') {
-						args.volume = 1
-					} else {
-						args.volume = parseFloat(args.volume)
-					}
-					showVideo(args.video, args.volume)
+					processMsg(msg)
 				})
 				ws.on('audio=', function(msg){
-					let args = urlToObject(msg)
-					if(typeof(args.volume) === 'undefined') {
-						args.volume = 1
-					} else {
-						args.volume = parseFloat(args.volume)
-					}
-					playAudio(args.audio, args.volume)
-					if(typeof(args.gif) !== 'undefined') {
-						ws.emit('gif=', msg)
-					}
+					processMsg(msg)
 				})
 			});
 		</script>
