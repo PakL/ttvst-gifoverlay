@@ -19,6 +19,7 @@
 				}
 			}
 			function showVideo(url, vol) {
+				console.log('Show video at ' + url)
 				var video = document.createElement('video')
 				video.src = url
 				video.addEventListener('canplaythrough', function() {
@@ -66,11 +67,17 @@
 				else args.duration = parseInt(args.duration)
 
 				if(typeof(args.gif) === 'string') {
+					if(args.gif.match(/^[A-Z]:/i)) args.gif = '/' + args.gif
+					args.gif = args.gif.replace(/\\/g, '/')
 					showGif(args.gif, args.duration)
-				} else if(args.video === 'string') {
+				} else if(typeof(args.video) === 'string') {
+					if(args.video.match(/^[A-Z]:/i)) args.video = '/' + args.video
+					args.video = args.video.replace(/\\/g, '/')
 					showVideo(args.video, args.volume)
 				}
 				if(typeof(args.audio) === 'string') {
+					if(args.audio.match(/^[A-Z]:/i)) args.audio = '/' + args.audio
+					args.audio = args.audio.replace(/\\/g, '/')
 					playAudio(args.audio, args.volume)
 				}
 			}
@@ -89,7 +96,6 @@
 				})
 			});
 		</script>
-		<link rel="stylesheet" type="text/css" href="animation.css">
 		<style type="text/css">
 			html, body {
 				width: 100%;
@@ -115,7 +121,5 @@
 			}
 		</style>
 	</head>
-	<body>
-
-	</body>
+	<body></body>
 </html>

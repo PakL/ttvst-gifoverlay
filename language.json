@@ -17,14 +17,14 @@
 	"GIF+Audio command": {
 		"de": "GIF+Audio Befehl"
 	},
-	"Define the absolute path to your gif file. The foregoing slash is mandatory. Use duration in milliseconds to control how long the gif should be displayed for. Defaults to 3 seconds (3000 milliseconds)": {
-		"de": "Absoluten Pfad deiner GIF-Datei angeben. Der vorgestellte Slash ist nötig. Benutze duration in Millisekunden um die Dauer anzugeben, die die GIF angezeigt werden soll. Ist standardmäßig bei 3 seconds (3000 Millisekunden)"
+	"Define the absolute path to your gif file. Use duration in milliseconds to control how long the gif should be displayed for. Defaults to 3 seconds (3000 milliseconds)": {
+		"de": "Absoluten Pfad deiner GIF-Datei angeben. Benutze duration in Millisekunden um die Dauer anzugeben, die die GIF angezeigt werden soll. Ist standardmäßig bei 3 seconds (3000 Millisekunden)"
 	},
-	"Define the absolute path to your video file. The foregoing slash is mandatory. Use volume between 0 and 1 to set the volume of the audio.": {
-		"de": "Absoluten Pfad deiner Video-Datei angeben. Der vorgestellte Slash ist nötig. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
+	"Define the absolute path to your video file. Use volume between 0 and 1 to set the volume of the audio.": {
+		"de": "Absoluten Pfad deiner Video-Datei angeben. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
 	},
-	"Define the absolute path to your audio file. The foregoing slash is mandatory. Use volume between 0 and 1 to set the volume of the audio.": {
-		"de": "Absoluten Pfad deiner Audio-Datei angeben. Der vorgestellte Slash ist nötig. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
+	"Define the absolute path to your audio file. Use volume between 0 and 1 to set the volume of the audio.": {
+		"de": "Absoluten Pfad deiner Audio-Datei angeben. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
 	},
 	"You can use the gif and audio together, although the audio is always playing to the end, no matter if the duration for the gif is shorter.": {
 		"de": "Du kannst eine GIF und eine Audio-Datei zusammen abspielen, wobei die Audio-Datei immer bis zum Ende gespielt, egal ob die GIF-Länge kürzer angegeben wird."
