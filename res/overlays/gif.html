@@ -68,15 +68,18 @@
 
 				if(typeof(args.gif) === 'string') {
 					if(args.gif.match(/^[A-Z]:/i)) args.gif = '/' + args.gif
+					args.gif = decodeURIComponent(args.gif)
 					args.gif = args.gif.replace(/\\/g, '/')
 					showGif(args.gif, args.duration)
 				} else if(typeof(args.video) === 'string') {
 					if(args.video.match(/^[A-Z]:/i)) args.video = '/' + args.video
+					args.video = decodeURIComponent(args.video)
 					args.video = args.video.replace(/\\/g, '/')
 					showVideo(args.video, args.volume)
 				}
 				if(typeof(args.audio) === 'string') {
 					if(args.audio.match(/^[A-Z]:/i)) args.audio = '/' + args.audio
+					args.audio = decodeURIComponent(args.audio)
 					args.audio = args.audio.replace(/\\/g, '/')
 					playAudio(args.audio, args.volume)
 				}
