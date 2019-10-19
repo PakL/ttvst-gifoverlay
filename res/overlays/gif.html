@@ -6,15 +6,19 @@
 		<script type="application/javascript" src="../jquery.js"></script>
 		<script type="application/javascript" src="../client_websocket.js"></script>
 		<script type="application/javascript">
+			var playing = 0
 			function showGif(url, duration) {
 				console.log('Show Gif at ' + url)
 				var image = new Image()
 				image.src = url
+				playing++
 				image.onload = function() {
 					let gif = $('<div style="background-image:url('+url+');"></div>')
 					$('body').append(gif)
 					window.setTimeout(function(){
 						gif.remove()
+						playing--
+						nextQueue()
 					}, duration)
 				}
 			}
@@ -22,24 +26,44 @@
 				console.log('Show video at ' + url)
 				var video = document.createElement('video')
 				video.src = url
+				playing++
 				video.addEventListener('canplaythrough', function() {
 					video.volume = vol
 					video.play()
 				})
 				video.addEventListener('error', function(e) {
+					console.log('video playback error')
 					$(video).remove()
+					playing--
+					nextQueue()
 				})
 				video.addEventListener('ended', function() {
-					console.log('playback ended')
+					console.log('video playback ended')
 					$(video).remove()
+					playing--
+					nextQueue()
 				})
 				$('body').append(video)
 			}
 			function playAudio(url, vol) {
+				console.log('Playing audio at ' + url)
 				var audio = new Audio(url)
+				playing++
 				audio.addEventListener('canplaythrough', function() {
 					audio.volume = vol
 					audio.play()
+				})
+				audio.addEventListener('error', function(e) {
+					console.log('audio playback error')
+					audio = null
+					playing--
+					nextQueue()
+				})
+				audio.addEventListener('ended', function() {
+					console.log('audio playback ended')
+					audio = null
+					playing--
+					nextQueue()
 				})
 			}
 
@@ -62,6 +86,8 @@
 
 				if(typeof(args.volume) === 'undefined') args.volume = 1
 				else args.volume = parseFloat(args.volume)
+				if(args.volume > 1) args.volume = 1
+				if(args.volume < 0) args.volume = 0
 
 				if(typeof(args.duration) === 'undefined') args.duration = 3000
 				else args.duration = parseInt(args.duration)
@@ -85,17 +111,30 @@
 				}
 			}
 
+			var queue = []
+			function nextQueue()
+			{
+				if(playing <= 0 && queue.length > 0) {
+					playing = 0
+					let cmd = queue.shift()
+					processMsg(cmd)
+				}
+			}
+
 			var ws = new WebsocketHelper();
 			var visible = false
 			$(document).ready(function(){
 				ws.on('gif=', function(msg){
-					processMsg(msg)
+					queue.push(msg)
+					nextQueue()
 				})
 				ws.on('video=', function(msg){
-					processMsg(msg)
+					queue.push(msg)
+					nextQueue()
 				})
 				ws.on('audio=', function(msg){
-					processMsg(msg)
+					queue.push(msg)
+					nextQueue()
 				})
 			});
 		</script>
