@@ -1,0 +1,134 @@
+{
+	"triggers": [
+		{
+			"label": "Playing GIF",
+			"addon": "GIF Overlay",
+			"description": "Playing GIF for x milliseconds",
+			"channel": "app.ttvst.gifoverlay.playinggif",
+			"arguments": [{
+				"label": "gif",
+				"description": "Absolute path to GIF file",
+				"type": "file"
+			},{
+				"label": "duration",
+				"description": "Duration of how long the GIF is displayed in milliseconds (1/1000 second)",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Playing GIF with audio",
+			"addon": "GIF Overlay",
+			"description": "Playing GIF with audio until audio is finished",
+			"channel": "app.ttvst.gifoverlay.playinggifaudio",
+			"arguments": [{
+				"label": "gif",
+				"description": "Absolute path to GIF file",
+				"type": "file"
+			},{
+				"label": "audio",
+				"description": "Absolute path to audio file",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Playing Audio",
+			"addon": "GIF Overlay",
+			"description": "Playing audio file once",
+			"channel": "app.ttvst.gifoverlay.playingaudio",
+			"arguments": [{
+				"label": "audio",
+				"description": "Absolute path to audio file",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Playing Video",
+			"addon": "GIF Overlay",
+			"description": "Playing video file once",
+			"channel": "app.ttvst.gifoverlay.playingvideo",
+			"arguments": [{
+				"label": "video",
+				"description": "Absolute path to video file",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		}
+	],
+	"actions": [
+		{
+			"label": "Play GIF",
+			"addon": "GIF Overlay",
+			"description": "Play GIF for x milliseconds",
+			"channel": "app.ttvst.gifoverlay.playGIF",
+			"parameters": [{
+				"label": "gif",
+				"description": "Absolute path to GIF file; must be in an allowed source folder. APNGs, WEBPs and static images are also possible.",
+				"type": "file"
+			},{
+				"label": "duration",
+				"description": "Duration of how long the GIF is displayed in milliseconds (1/1000 second)",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Play GIF with audio",
+			"addon": "GIF Overlay",
+			"description": "Play GIF with audio until audio is finished",
+			"channel": "app.ttvst.gifoverlay.playGIFAudio",
+			"parameters": [{
+				"label": "gif",
+				"description": "Absolute path to GIF file; must be in an allowed source folder. APNGs, WEBPs and static images are also possible.",
+				"type": "file"
+			},{
+				"label": "audio",
+				"description": "Absolute path to audio file; must be in an allowed source folder. WAV, MP3, M4A and OGG are supported.",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Play Audio",
+			"addon": "GIF Overlay",
+			"description": "Play audio file once",
+			"channel": "app.ttvst.gifoverlay.playAudio",
+			"parameters": [{
+				"label": "audio",
+				"description": "Absolute path to audio file; must be in an allowed source folder. WAV, MP3, M4A and OGG are supported.",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		},
+		{
+			"label": "Play Video",
+			"addon": "GIF Overlay",
+			"description": "Play video file once",
+			"channel": "app.ttvst.gifoverlay.playVideo",
+			"parameters": [{
+				"label": "video",
+				"description": "Absolute path to video file; must be in an allowed source folder. MP4 and WEBM are supported.",
+				"type": "file"
+			},{
+				"label": "volume",
+				"description": "Volume of the audio between 0 and 100",
+				"type": "number"
+			}]
+		}
+	]
+}

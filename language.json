@@ -1,32 +1,103 @@
 {
 	"GIF Overlay": {
-		"de": "GIF Overlay"
+		"de": "GIF-Overlay"
 	},
-	"GIF overlay URL": {
-		"de": "GIF-Overlay-URL"
+	"Play GIF": {
+		"de": "GIF abspielen"
 	},
-	"GIF command": {
-		"de": "GIF Befehl"
+	"Play GIF with audio": {
+		"de": "GIF mit Audio abspielen"
 	},
-	"Video command": {
-		"de": "Video Befehl"
+	"Play Audio": {
+		"de": "Audio abspielen"
 	},
-	"Audio command": {
-		"de": "Audio Befehl"
+	"Play Video": {
+		"de": "Video abspielen"
 	},
-	"GIF+Audio command": {
-		"de": "GIF+Audio Befehl"
+	"Play GIF for x milliseconds": {
+		"de": "GIF für x Millisekunden abspielen"
 	},
-	"Define the absolute path to your gif file. Use duration in milliseconds to control how long the gif should be displayed for. Defaults to 3 seconds (3000 milliseconds)": {
-		"de": "Absoluten Pfad deiner GIF-Datei angeben. Benutze duration in Millisekunden um die Dauer anzugeben, die die GIF angezeigt werden soll. Ist standardmäßig bei 3 seconds (3000 Millisekunden)"
+	"gif": {
+		"en": "GIF",
+		"de": "GIF"
 	},
-	"Define the absolute path to your video file. Use volume between 0 and 1 to set the volume of the audio.": {
-		"de": "Absoluten Pfad deiner Video-Datei angeben. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
+	"Absolute path to GIF file; must be in an allowed source folder. APNGs, WEBPs and static images are also possible.": {
+		"de": "Absoluter Pfad zur GIF-Datei; muss in einer erlaubten Dateiquellen sein. APNGs, WEBPs und statische Bilder sind auch möglich."
 	},
-	"Define the absolute path to your audio file. Use volume between 0 and 1 to set the volume of the audio.": {
-		"de": "Absoluten Pfad deiner Audio-Datei angeben. Benutze volume zwischen 0 und 1 um die Lautstärke des Audios einzustellen."
+	"duration": {
+		"en": "Duration",
+		"de": "Dauer"
 	},
-	"You can use the gif and audio together, although the audio is always playing to the end, no matter if the duration for the gif is shorter.": {
-		"de": "Du kannst eine GIF und eine Audio-Datei zusammen abspielen, wobei die Audio-Datei immer bis zum Ende gespielt, egal ob die GIF-Länge kürzer angegeben wird."
+	"Duration of how long the GIF is displayed in milliseconds (1/1000 second)": {
+		"de": "Dauer, die das GIF sichtbar sein soll in Millisekunden (1/1000 Sekunde)"
+	},
+	"Play GIF with audio until audio is finished": {
+		"de": "GIF mit Audio abspielen bis Audio zuende ist"
+	},
+	"audio": {
+		"en": "Audio",
+		"de": "Audio"
+	},
+	"Absolute path to audio file; must be in an allowed source folder. WAV, MP3, M4A and OGG are supported.": {
+		"de": "Absoluter Pfad zur Audio-Datei; muss in einer erlaubten Dateiquellen sein. WAV, MP3, M4A und OGG werden unterstüzt."
+	},
+	"Play audio file once": {
+		"de": "Audio einmal abspielen"
+	},
+	"Play video file once": {
+		"de": "Video einmal abspielen"
+	},
+	"video": {
+		"en": "Video",
+		"de": "Video"
+	},
+	"Absolute path to video file; must be in an allowed source folder. MP4 and WEBM are supported.": {
+		"de": "Absoluter Pfad zur Video-Datei; muss in einer erlaubten Dateiquellen sein. MP4 und WEBM werden unterstüzt."
+	},
+	"volume": {
+		"en": "Volume",
+		"de": "Lautstärke"
+	},
+	"Volume of the audio between 0 and 100": {
+		"de": "Lautstärke des Audios zwischen 0 und 100"
+	},
+	"Playing GIF": {
+		"de": "GIF wird abgespielt"
+	},
+	"Playing GIF with audio": {
+		"de": "GIF mit Audio wird abgespielt"
+	},
+	"Playing Audio": {
+		"de": "Audio wird abgespielt"
+	},
+	"Playing Video": {
+		"de": "Video wird abgespielt"
+	},
+	"Playing GIF for x milliseconds": {
+		"de": "GIF wird für x Millisekunden abgespielt"
+	},
+	"Absolute path to GIF file": {
+		"de": "Absoluter Pfad zur GIF-Datei"
+	},
+	"Playing audio file once": {
+		"de": "Audio wird einmal abgespielt"
+	},
+	"Absolute path to audio file": {
+		"de": "Absoluter Pfad zur Audio-Datei"
+	},
+	"Playing GIF with audio until audio is finished": {
+		"de": "GIF mit Audio wird abgespielt bis Audio zuende ist"
+	},
+	"Playing video file once": {
+		"de": "Video wird einmal abgespielt"
+	},
+	"Absolute path to video file": {
+		"de": "Absoluter Pfad zur Video-Datei"
+	},
+	"Example URL to GIF overlay. If you changed the host port you'll need to make changes accordingly.": {
+		"de": "Beispiel-URL für das GIF-Overlay. Wenn Sie den Host-Port geändert haben, müssen Sie entsprechende Änderungen vornehmen."
+	},
+	"To make GIFs and videos appear on the overlay use webhooks, hotkeys or any other addon that can call TTVST actions.": {
+		"de": "Um GIFs und Videos auf dem Overlay wiederzugeben benutzen Sie Webhooks, Hotkeys oder andere Addons, die TTVST-Aktionen aufrufen können."
 	}
 }

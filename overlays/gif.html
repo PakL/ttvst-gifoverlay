@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>GIF</title>
+		<script type="application/javascript" src="/jquery.js"></script>
+		<script type="application/javascript" src="/client_websocket.js"></script>
+		<script type="application/javascript">
+			var playing = false
+			var loading = 0
+
+			var image = null
+			var audio = null
+			var video = null
+			var volume = 0.5
+			var duration = 3000
+
+			function play() {
+				if(loading > 0) {
+					loading--;
+					if(loading > 0) return
+				} else if(loading == 0) {
+					return;
+				}
+				if(image !== null) {
+					let gif = $('<div style="background-image:url('+image+');"></div>')
+					$('body').append(gif)
+					if(audio === null) {
+						setTimeout(() => {
+							nextQueue(true);
+						}, duration)
+					}
+				}
+				if(audio !== null) {
+					audio.addEventListener('error', function(e) {
+						console.log('audio playback error')
+						nextQueue(true)
+					})
+					audio.addEventListener('ended', function() {
+						console.log('audio playback ended')
+						nextQueue(true)
+					})
+					audio.volume = volume
+					audio.play()
+				}
+
+				if(image === null && audio === null && video !== null) {
+					video.addEventListener('error', function(e) {
+						console.log('video playback error')
+						nextQueue(true)
+					})
+					video.addEventListener('ended', function() {
+						console.log('video playback ended')
+						nextQueue(true)
+					})
+					video.volume = volume
+					video.play()
+				}
+
+				if(image === null && audio === null && video === null) {
+					nextQueue(true);
+				}
+			}
+
+			function loadGif(url) {
+				loading++
+				var img = new Image()
+				console.log('Loading image at ' + url)
+				img.onload = function() {
+					img = null
+					play()
+				}
+				img.onerror = function() {
+					console.log('image loading error')
+					image = null
+					img = null
+					play()
+				}
+				img.src = url
+				image = url
+			}
+			function loadVideo(url, vol) {
+				loading++
+				console.log('Loading video at ' + url)
+				video = document.createElement('video')
+				let errorCB = function(e) {
+					console.log('video loading error')
+					video = null
+					play()
+				}
+				video.addEventListener('canplaythrough', function() {
+					video.removeEventListener('error', errorCB)
+					play()
+				})
+				video.addEventListener('error', errorCB)
+				video.src = url
+				$('body').append(video)
+			}
+			function loadAudio(url, vol) {
+				loading++
+				console.log('Loading audio at ' + url)
+				audio = new Audio(url)
+				let errorCB = function(e) {
+					console.log('audio loading error')
+					audio = null
+					play()
+				}
+				audio.addEventListener('canplaythrough', function() {
+					audio.removeEventListener('error', errorCB)
+					play()
+				})
+				audio.addEventListener('error', errorCB)
+			}
+
+
+			function processMsg(msg) {
+				if(typeof(msg.volume) === 'number') volume = msg.volume / 100
+				if(volume > 1) volume = 1
+				if(volume < 0) volume = 0
+
+				if(typeof(msg.duration) === 'number') duration = msg.duration
+
+				if(typeof(msg.gif) === 'string') {
+					msg.gif = '/fs/?' + encodeURIComponent(msg.gif)
+					loadGif(msg.gif)
+				}
+				if(typeof(msg.audio) === 'string') {
+					msg.audio = '/fs/?' + encodeURIComponent(msg.audio)
+					loadAudio(msg.audio)
+				}
+				if(typeof(msg.gif) !== 'string' && typeof(msg.audio) !== 'string' &&  typeof(msg.video) === 'string') {
+					msg.video = '/fs/?' + encodeURIComponent(msg.video)
+					loadVideo(msg.video)
+				}
+			}
+
+			var queue = []
+			function nextQueue(reset) {
+				if(typeof(reset) !== 'boolean') reset = false
+
+				if(reset) {
+					$('body').html('')
+					
+					playing = false
+					loading = 0
+
+					image = null
+					audio = null
+					video = null
+					volume = 0.5
+					duration = 3000
+				}
+				if(!playing && queue.length > 0) {
+					playing = true
+					let cmd = queue.shift()
+					processMsg(cmd)
+				}
+			}
+
+			function addToQueue(data) {
+				queue.push(data)
+				nextQueue()
+			}
+
+			var ws = new WebsocketHelper();
+			var visible = false
+			$(document).ready(function(){
+				ws.on('app.ttvst.gifoverlay.playinggif', addToQueue);
+				ws.on('app.ttvst.gifoverlay.playinggifaudio', addToQueue);
+				ws.on('app.ttvst.gifoverlay.playingaudio',addToQueue);
+				ws.on('app.ttvst.gifoverlay.playingvideo', addToQueue);
+			});
+		</script>
+		<style type="text/css">
+			html, body {
+				width: 100%;
+				height: 100%;
+				padding: 0px;
+				margin: 0px;
+				text-align: center;
+				overflow: hidden;
+				position: relative;
+			}
+			body {
+				background-color: rgba(0, 255, 0, 1);
+			}
+			body > div, body > video {
+				width: 100%;
+				height: 100%;
+				background-color: transparent;
+			}
+			body > div {
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+		</style>
+	</head>
+	<body></body>
+</html>
