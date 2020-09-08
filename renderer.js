@@ -1,5 +1,4 @@
-const Broadcast = require('../../dist/dev.pakl.ttvst/renderer/Broadcast');
-const Settings = require('../../dist/dev.pakl.ttvst/renderer/Settings');
+const { Broadcast, Settings } = TTVST;
 
 function overlayReady(overlayPage) {
 	overlayPage.addSettingsSet({

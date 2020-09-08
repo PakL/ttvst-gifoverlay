@@ -1,4 +1,7 @@
-import BroadcastMain from '../../dist/dev.pakl.ttvst/main/BroadcastMain';
+import TTVSTMain from '../../dist/dev.pakl.ttvst/main/TTVSTMain';
+
+declare var TTVST: TTVSTMain;
+const { BroadcastMain } = TTVST;
 
 class GifMain {
 
