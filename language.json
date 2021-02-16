@@ -17,26 +17,14 @@
 	"Play GIF for x milliseconds": {
 		"de": "GIF für x Millisekunden abspielen"
 	},
-	"gif": {
-		"en": "GIF",
-		"de": "GIF"
-	},
 	"Absolute path to GIF file; must be in an allowed source folder. APNGs, WEBPs and static images are also possible.": {
 		"de": "Absoluter Pfad zur GIF-Datei; muss in einer erlaubten Dateiquellen sein. APNGs, WEBPs und statische Bilder sind auch möglich."
-	},
-	"duration": {
-		"en": "Duration",
-		"de": "Dauer"
 	},
 	"Duration of how long the GIF is displayed in milliseconds (1/1000 second)": {
 		"de": "Dauer, die das GIF sichtbar sein soll in Millisekunden (1/1000 Sekunde)"
 	},
 	"Play GIF with audio until audio is finished": {
 		"de": "GIF mit Audio abspielen bis Audio zuende ist"
-	},
-	"audio": {
-		"en": "Audio",
-		"de": "Audio"
 	},
 	"Absolute path to audio file; must be in an allowed source folder. WAV, MP3, M4A and OGG are supported.": {
 		"de": "Absoluter Pfad zur Audio-Datei; muss in einer erlaubten Dateiquellen sein. WAV, MP3, M4A und OGG werden unterstüzt."
@@ -47,16 +35,8 @@
 	"Play video file once": {
 		"de": "Video einmal abspielen"
 	},
-	"video": {
-		"en": "Video",
-		"de": "Video"
-	},
 	"Absolute path to video file; must be in an allowed source folder. MP4 and WEBM are supported.": {
 		"de": "Absoluter Pfad zur Video-Datei; muss in einer erlaubten Dateiquellen sein. MP4 und WEBM werden unterstüzt."
-	},
-	"volume": {
-		"en": "Volume",
-		"de": "Lautstärke"
 	},
 	"Volume of the audio between 0 and 100": {
 		"de": "Lautstärke des Audios zwischen 0 und 100"
@@ -99,5 +79,14 @@
 	},
 	"To make GIFs and videos appear on the overlay use webhooks, hotkeys or any other addon that can call TTVST actions.": {
 		"de": "Um GIFs und Videos auf dem Overlay wiederzugeben benutzen Sie Webhooks, Hotkeys oder andere Addons, die TTVST-Aktionen aufrufen können."
+	},
+	"Waiting for overlay server...": {
+		"de": "Warte auf Overlay-Server..."
+	},
+	"GIF overlay loaded": {
+		"de": "GIF-Overlay geladen"
+	},
+	"No GIF overlay loaded": {
+		"de": "Kein GIF-Overlay geladen"
 	}
 }
