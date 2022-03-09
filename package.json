@@ -1,7 +1,7 @@
 {
 	"addonid": "app.ttvst.gifoverlay",
 	"name": "gifoverlay",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Overlay to play GIFs, Videos or Audio",
 	"author": {
 		"email": "git@pakl.dev",

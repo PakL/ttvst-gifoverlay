@@ -8,12 +8,14 @@
 		<script type="application/javascript">
 			var playing = false
 			var loading = 0
+			var channel = ''
 
 			var image = null
 			var audio = null
 			var video = null
 			var volume = 0.5
 			var duration = 3000
+			var fading = false
 
 			function play() {
 				if(loading > 0) {
@@ -24,11 +26,31 @@
 				}
 				if(image !== null) {
 					let gif = $('<div style="background-image:url('+image+');"></div>')
+					if(fading) gif.hide();
 					$('body').append(gif)
 					if(audio === null) {
+						if(fading) {
+							if(duration >= 1000) {
+								gif.fadeIn(500);
+								setTimeout(() => {
+									gif.fadeOut(500);
+								}, duration -500);
+							} else {
+								gif.show();
+							}
+						}
 						setTimeout(() => {
 							nextQueue(true);
 						}, duration)
+					} else if(fading) {
+						if(!isNaN(audio.duration) && audio.duration >= 1) {
+							gif.fadeIn(500);
+							setTimeout(() => {
+								gif.fadeOut(500);
+							}, (audio.duration*1000)-500);
+						} else {
+							gif.show();
+						}
 					}
 				}
 				if(audio !== null) {
@@ -45,6 +67,14 @@
 				}
 
 				if(image === null && audio === null && video !== null) {
+
+					if(fading && !isNaN(video.duration) && video.duration >= 1) {
+						$(video).hide().fadeIn(500);
+						setTimeout(() => {
+							$(video).fadeOut(500);
+						}, (video.duration * 1000)-500)
+					}
+
 					video.addEventListener('error', function(e) {
 						console.log('video playback error')
 						nextQueue(true)
@@ -114,11 +144,19 @@
 
 
 			function processMsg(msg) {
+				if(typeof(msg.channel) !== 'string') msg.channel = '';
+				if(msg.channel !== channel) {
+					nextQueue(true);
+					return;
+				}
+
 				if(typeof(msg.volume) === 'number') volume = msg.volume / 100
 				if(volume > 1) volume = 1
 				if(volume < 0) volume = 0
 
 				if(typeof(msg.duration) === 'number') duration = msg.duration
+
+				if(typeof(msg.fading) === 'boolean') fading = msg.fading;
 
 				if(typeof(msg.gif) === 'string') {
 					msg.gif = '/fs/?' + encodeURIComponent(msg.gif)
@@ -149,6 +187,7 @@
 					video = null
 					volume = 0.5
 					duration = 3000
+					fading = false
 				}
 				if(!playing && queue.length > 0) {
 					playing = true
@@ -169,6 +208,11 @@
 				ws.on('app.ttvst.gifoverlay.playinggifaudio', addToQueue);
 				ws.on('app.ttvst.gifoverlay.playingaudio',addToQueue);
 				ws.on('app.ttvst.gifoverlay.playingvideo', addToQueue);
+
+				if(document.location.search.length > 1) {
+					var params = new URLSearchParams(document.location.search);
+					channel = params.get('channel'); if(channel === null) channel = '';
+				}
 			});
 		</script>
 		<style type="text/css">

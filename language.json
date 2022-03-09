@@ -88,5 +88,29 @@
 	},
 	"No GIF overlay loaded": {
 		"de": "Kein GIF-Overlay geladen"
+	},
+	"Overlay Channel": {
+		"de": "Overlaykanal"
+	},
+	"You can enter a channel here to create a new URL. You can use different channels to split up your GIF actions into different overlays. You can then play different GIFs in different locations in your scenes. Make sure you enter the channel name in the action. Press Enter to make sure the URL above updates.": {
+		"de": "Du kannst hier einen Kanal eingeben um eine neue URL zu generieren. Du kannst unterschiedliche Kanäle benutzen um GIF-Aktionen in unterschiedliche Overlays aufzusplitten. Damit kannst du GIFs in verschiedenen Positionen auf deiner Szene abspielen. Denke daran den Kanalnamen in der Aktion anzugeben. Drücke Enter damit die URL oben korrekt aktualisiert."
+	},
+	"true if the image is to fade in and out": {
+		"de": "Wahr wenn das Bild ein- und ausgeblendet werden soll"
+	},
+	"Optionally contains overlay channel": {
+		"de": "Beinhaltet den optionalen Overlaykanal"
+	},
+	"true if the video is to fade in and out": {
+		"de": "Wahr wenn das Video ein- und ausgeblendet werden soll"
+	},
+	"Check if you want the image to fade in and out": {
+		"de": "Anhaken wenn das Bild ein- und ausgeblendet werden soll"
+	},
+	"Optional, enter overlay channel here": {
+		"de": "Optional, gebe hier einen Overlaykanal ein"
+	},
+	"Check if you want the video to fade in and out": {
+		"de": "Anhaken wenn das Video ein- und ausgeblendet werden soll"
 	}
 }

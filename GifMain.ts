@@ -30,29 +30,36 @@ class GifMain {
 		BroadcastMain.instance.once('app.ttvst.overlay.ready', this.updateStartpageStatus);
 	}
 
-	private onPlayGIF(gifpath: string, duration: number) {
+	private onPlayGIF(gifpath: string, duration: number, fading: boolean, channel: string) {
 		if(typeof(gifpath) !== 'string' || gifpath.length <= 0) return;
 		if(typeof(duration) !== 'number') duration = 3000;
-		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playinggif', gifpath, duration);
+		if(typeof(fading) !== 'boolean') fading = false;
+		if(typeof(channel) !== 'string') channel = '';
+		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playinggif', gifpath, duration, fading, channel);
 	}
 
-	private onPlayGIFAudio(gifpath: string, audiopath: string, volume: number) {
+	private onPlayGIFAudio(gifpath: string, audiopath: string, volume: number, fading: boolean, channel: string) {
 		if(typeof(gifpath) !== 'string' || gifpath.length <= 0) return;
 		if(typeof(audiopath) !== 'string' || audiopath.length <= 0) return;
 		if(typeof(volume) !== 'number') volume = 50;
-		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playinggifaudio', gifpath, audiopath, volume);
+		if(typeof(fading) !== 'boolean') fading = false;
+		if(typeof(channel) !== 'string') channel = '';
+		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playinggifaudio', gifpath, audiopath, volume, fading, channel);
 	}
 
-	private onPlayAudio(audiopath: string, volume: number) {
+	private onPlayAudio(audiopath: string, volume: number, channel: string) {
 		if(typeof(audiopath) !== 'string' || audiopath.length <= 0) return;
 		if(typeof(volume) !== 'number') volume = 50;
-		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playingaudio', audiopath, volume);
+		if(typeof(channel) !== 'string') channel = '';
+		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playingaudio', audiopath, volume, channel);
 	}
 
-	private onPlayVideo(videopath: string, volume: number) {
+	private onPlayVideo(videopath: string, volume: number, fading: boolean, channel: string) {
 		if(typeof(videopath) !== 'string' || videopath.length <= 0) return;
 		if(typeof(volume) !== 'number') volume = 50;
-		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playingvideo', videopath, volume);
+		if(typeof(fading) !== 'boolean') fading = false;
+		if(typeof(channel) !== 'string') channel = '';
+		BroadcastMain.instance.emit('app.ttvst.gifoverlay.playingvideo', videopath, volume, fading, channel);
 	}
 
 	private onOverlayLoaded(path: string) {

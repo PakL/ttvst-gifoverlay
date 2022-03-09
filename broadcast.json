@@ -13,6 +13,14 @@
 				"label": "duration",
 				"description": "Duration of how long the GIF is displayed in milliseconds (1/1000 second)",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "true if the image is to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optionally contains overlay channel",
+				"type": "string"
 			}]
 		},
 		{
@@ -32,6 +40,14 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "true if the image is to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optionally contains overlay channel",
+				"type": "string"
 			}]
 		},
 		{
@@ -47,6 +63,10 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "channel",
+				"description": "Optionally contains overlay channel",
+				"type": "string"
 			}]
 		},
 		{
@@ -62,6 +82,14 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "true if the video is to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optionally contains overlay channel",
+				"type": "string"
 			}]
 		}
 	],
@@ -79,6 +107,14 @@
 				"label": "duration",
 				"description": "Duration of how long the GIF is displayed in milliseconds (1/1000 second)",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "Check if you want the image to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optional, enter overlay channel here",
+				"type": "string"
 			}]
 		},
 		{
@@ -98,6 +134,14 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "Check if you want the image to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optional, enter overlay channel here",
+				"type": "string"
 			}]
 		},
 		{
@@ -113,6 +157,10 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "channel",
+				"description": "Optional, enter overlay channel here",
+				"type": "string"
 			}]
 		},
 		{
@@ -128,6 +176,14 @@
 				"label": "volume",
 				"description": "Volume of the audio between 0 and 100",
 				"type": "number"
+			},{
+				"label": "fading",
+				"description": "Check if you want the video to fade in and out",
+				"type": "boolean"
+			},{
+				"label": "channel",
+				"description": "Optional, enter overlay channel here",
+				"type": "string"
 			}]
 		}
 	]
